@@ -1,7 +1,8 @@
 FROM ubuntu:groovy
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install build-essential curl file git sudo libpq-dev -y
+RUN apt-get install build-essential curl file git sudo libpq-dev locales -y
+RUN locale-gen en_US.UTF-8
 
 RUN useradd -m -s /bin/bash dev
 RUN echo 'dev ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
@@ -9,7 +10,7 @@ USER dev
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
-RUN brew install antibody asdf bat curl fzf gcc git ripgrep tree zsh postgresql
+RUN brew install antibody asdf bat curl fzf gcc git ripgrep tree zsh postgresql neovim
 
 USER root
 RUN echo $(which zsh) >> /etc/shells
