@@ -1,0 +1,6 @@
+zdharma/fast-syntax-highlighting
+agkozak/zsh-z
+mafredri/zsh-async
+sindresorhus/pure
+Aloxaf/fzf-tab
+wfxr/forgit
